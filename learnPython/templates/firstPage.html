@@ -1,0 +1,97 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>First Page</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+
+    <style>
+        *{
+            box-sizing: border-box;
+        }
+        body {
+            background:  #e0dce3;
+            {#background: linear-gradient(to right, #90799c, #0b0112);#}
+        }
+        .no-gutters {
+            background: #e0dce3;
+            border-radius: 5px;
+            box-shadow: #6e6d6d;
+        }
+        nav {
+            background: linear-gradient(to right, #d5cadb, #0b0112);
+        }
+        .btn {
+            text-align: center;
+            text-shadow: 4px 4px 4px black;
+            background: #301934;
+            text-decoration: none;
+            color: white;
+            font-size: 30px;
+            margin: 3px;
+            padding-left: 30px;
+            padding-right: 30px;
+        }
+        .btn:hover {
+            color: blueviolet;
+        }
+
+        .image {
+            width: 360px;
+            height: 250px;
+            margin-bottom: 60px;
+            margin-top: 10px;
+        }
+
+        #btn2{
+            padding-left: 65px;
+            padding-right: 65px;
+            margin-top: 110px;
+        }
+
+    </style>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#" style="text-shadow: 4px 4px 4px black;">Учи "Python"</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  </div>
+</nav>
+
+<section class="Form my-4 mx-5">
+    <div class="container">
+        <div class="row no-gutters" >
+
+<div style="text-align: center; size: 10px">
+    <img class="image" style="border-color: black" src="{% static 'web_images/first_page.png' %}" >
+</div>
+
+
+{#<section class="Form my-4 mx-5">#}
+{#    <div class="container">#}
+{#        <div class="row no-gutters">#}
+            <h3 style="text-align: center; text-shadow: 1px 1px 1px black;">Добре дојдовте на системот за учење на програмскиот јазик "Python"!</h3>
+{#        </div>#}
+{#    </div>#}
+{#</section>#}
+
+<div style="text-align: center">
+    <a id="btn2" type="button" class="btn" href="{% url 'login' %}">Најави се</a>
+    <br>
+    <a type="button" class="btn" href="{% url 'register' %}">Регистрирај се</a>
+</div>
+
+                    </div>
+    </div>
+</section>
+
+</body>
+</html>

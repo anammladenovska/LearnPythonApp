@@ -1,0 +1,119 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Register</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <script type="text/javascript" >
+        $(document).ready(function(){
+            $("#id_username").attr('placeholder', '{{form.username.label}}');
+            $("#id_email").attr('placeholder', '{{form.email.label}}');
+            $("#id_password1").attr('placeholder', '{{ form.password1.label }}');
+            $("#id_password2").attr('placeholder', '{{ form.password2.label }}');
+        });
+    </script>
+
+    <style>
+        *{
+            box-sizing: border-box;
+        }
+        body {
+            background:  #e0dce3;
+            {#background: linear-gradient(to right, #90799c, #0b0112);#}
+        }
+        .no-gutters {
+            background:  #e0dce3;
+            border-radius: 5px;
+        }
+        nav {
+            background: linear-gradient(to right, #d5cadb, #0b0112);
+        }
+        .a_btn {
+            text-align: center;
+            text-shadow: 4px 4px 4px black;
+            background: #301934;
+            text-decoration: none;
+            color: white;
+            font-size: 30px;
+            margin: 3px;
+            padding-left: 30px;
+            padding-right: 30px;
+        }
+        .a_btn:hover {
+            color: blueviolet;
+            background: white;
+        }
+
+        .image {
+            width: 330px;
+            height: 220px;
+            margin-bottom: 60px;
+            margin-top: 0px;
+        }
+
+        #position_form{
+            text-align: center;
+            background:  #e0dce3;
+        }
+
+
+    </style>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#" style="text-shadow: 4px 4px 4px black;">Учи "Python"</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  </div>
+</nav>
+
+<div style="text-align: center; size: 10px">
+    <img class="image" style="border-color: black" src="{% static 'web_images/first_page.png' %}" >
+</div>
+
+<section class="Form my-4 mx-5">
+    <div class="container">
+        <div class="row no-gutters">
+            <form method="POST" action="">
+                <div id="position_form" class="form-control">
+                    {% csrf_token %}
+
+                        {{ form.username }}
+
+                    <br><br>
+
+                        {{ form.email }}
+
+                    <br><br>
+
+                        {{ form.password1 }}
+
+                    <br><br>
+
+                        {{ form.password2 }}
+
+                    <br><br>
+                    <input class="a_btn btn" type="submit" name="Create user">
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
+
+<div style="text-align: center">
+    {{ form.errors }}
+    Веќе имате профил?
+    <a style="height: 40px; width: 130px; font-size: 15px" class="a_btn btn" href="{% url 'login' %}">Најави се</a>
+</div>
+
+</body>
+</html>
